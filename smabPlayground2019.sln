@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29209.152
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "smabPlayground2019.Server", "src\smabPlayground2019\Server\smabPlayground2019.Server.csproj", "{4DF73A2B-B587-40DF-95F6-B4BF38BF920B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "smabPlayground2019.Client", "src\smabPlayground2019\Client\smabPlayground2019.Client.csproj", "{D6A243C8-EAEB-4AEB-B155-433E79F4246D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "smabPlayground2019.Shared", "src\smabPlayground2019\Shared\smabPlayground2019.Shared.csproj", "{4C29CF05-9ACD-48F6-83AD-71EB81F3D1BF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{480D36C1-8D27-4FAF-9A86-8B43347E029D}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4DF73A2B-B587-40DF-95F6-B4BF38BF920B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DF73A2B-B587-40DF-95F6-B4BF38BF920B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DF73A2B-B587-40DF-95F6-B4BF38BF920B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DF73A2B-B587-40DF-95F6-B4BF38BF920B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6A243C8-EAEB-4AEB-B155-433E79F4246D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6A243C8-EAEB-4AEB-B155-433E79F4246D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6A243C8-EAEB-4AEB-B155-433E79F4246D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6A243C8-EAEB-4AEB-B155-433E79F4246D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C29CF05-9ACD-48F6-83AD-71EB81F3D1BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C29CF05-9ACD-48F6-83AD-71EB81F3D1BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C29CF05-9ACD-48F6-83AD-71EB81F3D1BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C29CF05-9ACD-48F6-83AD-71EB81F3D1BF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CEEE1019-8DF1-412D-BC62-4A956E53F8FD}
+	EndGlobalSection
+EndGlobal
