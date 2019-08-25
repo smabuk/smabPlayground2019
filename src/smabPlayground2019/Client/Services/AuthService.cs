@@ -1,5 +1,8 @@
-﻿using System.Net.Http;
+﻿using System.Linq;
+using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using Blazored.LocalStorage;
 using Microsoft.AspNetCore.Components;
@@ -24,14 +27,26 @@ namespace smabPlayground2019.Client.Services
 
 		public async Task<RegisterResult> Register(RegisterModel registerModel)
 		{
-			var result = await _httpClient.PostJsonAsync<RegisterResult>("api/accounts", registerModel);
+			var requestJson = JsonSerializer.Serialize(registerModel, JsonSerializerOptionsProvider.Options);
+			var response = await _httpClient.SendAsync(new HttpRequestMessage(HttpMethod.Post, "api/accounts")
+			{
+				 Content = new StringContent(requestJson, Encoding.UTF8, "application/json")
+			});
 
-			return result;
+			var stringContent = await response.Content.ReadAsStringAsync();
+			return JsonSerializer.Deserialize<RegisterResult>(stringContent, JsonSerializerOptionsProvider.Options);
 		}
 
 		public async Task<LoginResult> Login(LoginModel loginModel)
 		{
-			var result = await _httpClient.PostJsonAsync<LoginResult>("api/Login", loginModel);
+			var requestJson = JsonSerializer.Serialize(loginModel, JsonSerializerOptionsProvider.Options);
+			var response = await _httpClient.SendAsync(new HttpRequestMessage(HttpMethod.Post, "api/login")
+			{
+				Content = new StringContent(requestJson, Encoding.UTF8, "application/json")
+			});
+
+			var stringContent = await response.Content.ReadAsStringAsync();
+			var result = JsonSerializer.Deserialize<LoginResult>(stringContent, JsonSerializerOptionsProvider.Options);
 
 			if (result.Successful)
 			{
@@ -51,5 +66,13 @@ namespace smabPlayground2019.Client.Services
 			((ApiAuthenticationStateProvider)_authenticationStateProvider).MarkUserAsLoggedOut();
 			_httpClient.DefaultRequestHeaders.Authorization = null;
 		}
+	}
+	internal static class JsonSerializerOptionsProvider
+	{
+		public static readonly JsonSerializerOptions Options = new JsonSerializerOptions
+		{
+			PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+			PropertyNameCaseInsensitive = true,
+		};
 	}
 }
