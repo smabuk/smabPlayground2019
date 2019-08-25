@@ -17,13 +17,18 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.0.0-preview8.19405.4" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.0.0-preview8-19413-06" />
+    <!--<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.0.0-preview8.19405.4" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.0.0-preview8-19413-06" />-->
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Client\smabPlayground2019.Client.csproj" />
     <ProjectReference Include="..\Shared\smabPlayground2019.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+	<!-- If the folder is empty this is needed for it to show up in VS Solution Explorer-->
+    <Folder Include="App_Data\" />
   </ItemGroup>
 
 </Project>
