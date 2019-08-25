@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Authorization;
 
 namespace smabPlayground2019.Server.Controllers
 {
@@ -24,6 +25,7 @@ namespace smabPlayground2019.Server.Controllers
 			this.logger = logger;
 		}
 
+		[Authorize]
 		[HttpGet]
 		public IEnumerable<WeatherForecast> Get()
 		{
