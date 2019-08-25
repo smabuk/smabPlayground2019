@@ -8,7 +8,14 @@
 
 @if (forecasts == null)
 {
-    <p><em>Loading...</em></p>
+<AuthorizeView>
+	<Authorized>
+		<p><em>Loading...</em></p>
+	</Authorized>
+	<NotAuthorized>
+		<p><em>Not allowed to check the weather!</em></p>
+	</NotAuthorized>
+</AuthorizeView>
 }
 else
 {
@@ -36,11 +43,27 @@ else
 }
 
 @code {
-    WeatherForecast[] forecasts;
 
-    protected override async Task OnInitializedAsync()
-    {
-        forecasts = await Http.GetJsonAsync<WeatherForecast[]>("WeatherForecast");
-    }
+	[CascadingParameter] private Task<AuthenticationState> authenticationStateTask { get; set; }
+
+	WeatherForecast[] forecasts;
+
+	protected override async Task OnInitializedAsync()
+	{
+		var authState = await authenticationStateTask;
+		var user = authState.User;
+
+		if (user.Identity.IsAuthenticated)
+		{
+			try
+				{
+					forecasts = await Http.GetJsonAsync<WeatherForecast[]>("WeatherForecast");
+				}
+				catch (HttpRequestException ex)
+				{
+					Console.WriteLine($"Exception retrieving data from WeatherForecast service: {ex.Message}");
+				}
+			}
+		}
 
 }
