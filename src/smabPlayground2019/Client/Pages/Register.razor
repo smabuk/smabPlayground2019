@@ -9,7 +9,7 @@
 	<div class="alert alert-danger" role="alert">
 		@foreach (var error in Errors)
 		{
-			<p>error</p>
+			<p>@error</p>
 		}
 	</div>
 }
@@ -23,17 +23,17 @@
 
 			<div class="form-group">
 				<label for="email">Email address</label>
-				<InputText Id="email" Class="form-control" @bind-Value="@RegisterModel.Email" />
+				<InputText Id="email" type="email" Class="form-control" @bind-Value="@RegisterModel.Email" />
 				<ValidationMessage For="@(() => RegisterModel.Email)" />
 			</div>
 			<div class="form-group">
 				<label for="password">Password</label>
-				<InputText Id="password" Class="form-control" @bind-Value="@RegisterModel.Password" />
+				<InputText Id="password" type="password" Class="form-control" @bind-Value="@RegisterModel.Password" />
 				<ValidationMessage For="@(() => RegisterModel.Password)" />
 			</div>
 			<div class="form-group">
-				<label for="password">Confirm Password</label>
-				<InputText Id="password" Class="form-control" @bind-Value="@RegisterModel.ConfirmPassword" />
+				<label for="confirmPassword">Confirm Password</label>
+				<InputText Id="confirmPassword" type="password" Class="form-control" @bind-Value="@RegisterModel.ConfirmPassword" />
 				<ValidationMessage For="@(() => RegisterModel.ConfirmPassword)" />
 			</div>
 			<button type="submit" class="btn btn-primary">Submit</button>
