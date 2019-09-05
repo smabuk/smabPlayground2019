@@ -22,16 +22,19 @@
                 <span class="oi oi-list-rich" aria-hidden="true"></span> Fetch data
             </NavLink>
         </li>
+		<LoginDisplay Visible="@showLoginDisplay" NavMenu="true"/>
     </ul>
 </div>
 
 @code {
     bool collapseNavMenu = true;
+	bool showLoginDisplay = false;
 
     string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
 
     void ToggleNavMenu()
     {
         collapseNavMenu = !collapseNavMenu;
+		showLoginDisplay = !collapseNavMenu;
     }
 }
