@@ -1,5 +1,8 @@
+﻿using Blazored.LocalStorage;
+using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Builder;
 using Microsoft.Extensions.DependencyInjection;
+using smabPlayground2019.Client.Services;
 
 namespace smabPlayground2019.Client
 {
@@ -7,6 +10,10 @@ namespace smabPlayground2019.Client
 	{
 		public void ConfigureServices(IServiceCollection services)
 		{
+			services.AddBlazoredLocalStorage();
+			services.AddAuthorizationCore();
+			services.AddScoped<AuthenticationStateProvider, ApiAuthenticationStateProvider>();
+			services.AddScoped<IAuthService, AuthService>();
 		}
 
 		public void Configure(IComponentsApplicationBuilder app)
